@@ -5,6 +5,57 @@
     <title>Title</title>
 </head>
 <body>
+<ul>
+    <li>
+        <input type="checkbox" name="box">AAA
+    </li>
+
+    <li>
+        <input type="checkbox" name="box">BBB
+    </li>
+
+    <li>
+        <input type="checkbox" name="box">CCC
+    </li>
+
+    <li>
+        <input type="checkbox" name="box">DDD
+    </li>
+
+    <li>
+        <input type="checkbox" name="box">EEE
+    </li>
+</ul>
+<div id="target">
+
+</div>
+
+<script>
+
+    //체크박스를 전체 체크 되어있는 상태로 만들기위해 : 체크박스가 어디있는지 파악 후 checked = true
+    //체크박스가 어디있는지 파악하기위해 input태그를 찾는다.
+
+    var arr = document.querySelectorAll("input")
+    console.log(arr)
+
+    for(var i=0; i<arr.length; i++){
+        arr[i].checked = true
+    }
+
+    //div태그와 관련
+    //1. id가 target인 것을 먼저 찾는다.
+    var target = document.querySelector("#target")
+
+    //2. innerHTML을 이용해서 id가 target인 태그안에 넣어줄 쿼리문을 추가
+    target.innerHTML = "<button>AAAA</button>";
+
+    //삭제 - input태그에서 하나 더 올라간 <li>태그를 삭제
+    var sample = document.querySelector("input").parentElement //<li>
+    var parent = sample.parentElement; //<ul>
+
+    parent.removeChild(sample)
+
+</script>
 
 </body>
 </html>
